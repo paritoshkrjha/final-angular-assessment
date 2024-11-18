@@ -3,6 +3,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { MemberDashboardComponent } from './member-dashboard/member-dashboard.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,14 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'admin',
+    },
+  },
+  {
+    path: 'admin/add',
+    component: AddProjectComponent,
     canActivate: [authGuard],
     data: {
       role: 'admin',

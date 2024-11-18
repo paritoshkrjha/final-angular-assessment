@@ -1,1 +1,13 @@
-<p>admin-dashboard works!</p>
+<app-navbar title="Admin Dashboard" />
+<app-root-layout>
+  <div class="mt-10 flex justify-between">
+    <p class="text-3xl">Projects/Tasks Overview</p>
+    <button
+      class="w-[100px] p-1 bg-[#157ae6] border-none rounded text-white cursor-pointer"
+      (click)="handleAddProject()"
+    >
+      Add Project
+    </button>
+  </div>
+  <div></div>
+</app-root-layout>

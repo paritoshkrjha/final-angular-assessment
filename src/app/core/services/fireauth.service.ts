@@ -85,9 +85,9 @@ export class FireAuthService {
     }
   }
 
-  async signOut() {
-    await this.auth.signOut();
+  signOut() {
     this.user = null;
+    return this.auth.signOut();
   }
 
   private handleError(error: any) {

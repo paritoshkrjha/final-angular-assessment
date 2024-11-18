@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import {
   addDoc,
   collection,
+  CollectionReference,
   deleteDoc,
   doc,
   Firestore,
   getDocFromServer,
+  getDocs,
   setDoc,
 } from '@angular/fire/firestore';
 
@@ -14,6 +16,19 @@ import {
 })
 export class FireStoreService {
   constructor(private firestore: Firestore) {}
+
+  async fetchUsers(): Promise<any[]> {
+    const usersCollection: CollectionReference = collection(
+      this.firestore,
+      'users'
+    );
+    const usersSnapshot = await getDocs(usersCollection);
+    const usersList = usersSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return usersList;
+  }
 
   async createDocument(docPath: string, data: any) {
     const docRef = doc(this.firestore, docPath);

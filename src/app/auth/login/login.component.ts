@@ -7,11 +7,12 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FireAuthService } from '../../core/services/fireauth.service';
+import { RootLayoutComponent } from '../../shared/layout/root-layout/root-layout.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RootLayoutComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

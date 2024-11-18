@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './member-dashboard.component.css'
 })
 export class MemberDashboardComponent {
-
+  
 }
