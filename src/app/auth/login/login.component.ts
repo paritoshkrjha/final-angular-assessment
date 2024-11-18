@@ -50,15 +50,16 @@ export class LoginComponent {
     this.loading = true;
     this.authService
       .signInWithEmailAndPassword(email, password)
-      .then(
-        () => {
-          console.log('Signed in successfully');
-          this.router.navigate(['/']);
-        },
-        (err) => {
-          alert(err.message);
+      .then(() => {
+        console.log('Signed up successfully');
+        if (this.authService.getRole() === 'admin') {
+          console.log('Redirecting to admin page');
+          this.router.navigate(['/admin'], { replaceUrl: true });
+        } else {
+          console.log('Redirecting to member page');
+          this.router.navigate(['/member'], { replaceUrl: true });
         }
-      )
+      })
       .finally(() => (this.loading = false));
   }
 
@@ -71,7 +72,13 @@ export class LoginComponent {
       .then(
         () => {
           console.log('Signed up successfully');
-          this.router.navigate(['/']);
+          if (this.authService.getRole() === 'admin') {
+            console.log('Redirecting to admin page');
+            this.router.navigate(['/admin'], { replaceUrl: true });
+          } else {
+            console.log('Redirecting to member page');
+            this.router.navigate(['/member'], { replaceUrl: true });
+          }
         },
         (err) => {
           alert(err.message);
