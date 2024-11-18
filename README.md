@@ -113,6 +113,7 @@ The application is built using Angular for the front end and with Firebase Fires
   - Name: Bob User  
   - Email: bob.user@example.com  
   - Role: Team Member  
+  
   - Name: Charlie Member  
   - Email: charlie.member@example.com  
   - Role: Team Member  
