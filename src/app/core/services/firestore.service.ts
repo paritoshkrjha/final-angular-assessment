@@ -8,7 +8,6 @@ import {
   getDocFromServer,
   setDoc,
 } from '@angular/fire/firestore';
-import { User } from '../../app.model';
 
 @Injectable({
   providedIn: 'root',
