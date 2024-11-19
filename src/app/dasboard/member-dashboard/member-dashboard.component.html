@@ -1,0 +1,33 @@
+<app-navbar title="Member Dashboard"></app-navbar>
+<app-root-layout>
+  <div class="mt-10 flex justify-between">
+    <p class="text-3xl">Assigned Tasks</p>
+  </div>
+  <div class="pt-8">
+    @if(isLoading){
+    <div class="flex justify-center items-center h-[300px]">
+      <div class="loader">Loading...</div>
+    </div>
+    } @else { @for(task of memberSpecificTasks; track task.id){
+    <div
+      class="border border-gray-300 rounded-md p-5 mt-5 flex justify-between items-center cursor-pointer"
+      (click)="handleTaskClick(task.id)"
+    >
+      <div>
+        <p class="text-xl">{{ task.title }}</p>
+        <p class="text-sm">
+          Project Name :
+          <span class="font-bold text-gray-500"> {{ task.projectName }}</span>
+        </p>
+      </div>
+      <div>
+        {{ getTaskStatus(task.status) }}
+      </div>
+    </div>
+    } } @if(!isLoading && memberSpecificTasks.length === 0){
+    <div class="flex justify-center items-center h-[300px]">
+      <p>No tasks found.</p>
+    </div>
+    }
+  </div>
+</app-root-layout>

@@ -7,15 +7,15 @@ export interface User {
 
 export interface Task {
   id: string;
-  name: string;
-  projecName: string;
+  title: string;
+  projectName: string;
   status: 'pending' | 'in-progress' | 'completed';
-  assignedToUser: string;
-  assignerToUserId: string;
+  assignedTo: string;
 }
 
-export interface Project {
-  id: string;
-  name: string;
-  tasks: Task[];
+export interface NewTask {
+  title: string;
+  projectName: string;
+  status: 'pending' | 'in-progress' | 'completed';
+  assignedTo: string;
 }
