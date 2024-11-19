@@ -59,5 +59,14 @@ export const routes: Routes = [
       role: 'admin',
     },
   },
-  
+  {
+    path: 'member',
+    component: MemberDashboardComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'member/task/:id',
+    component: TaskDetailsComponent,
+    canActivate: [authGuard],
+  },
 ];
