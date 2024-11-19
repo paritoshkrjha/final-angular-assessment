@@ -17,7 +17,7 @@ export class TasksService {
         },
         (error) => {
           console.log('Error:', error);
-        }
+        },
       )
       .finally(() => {
         this.tasksLoading = false;
@@ -56,7 +56,7 @@ export class TasksService {
       },
       (error) => {
         console.log('Error:', error);
-      }
+      },
     );
   }
 }

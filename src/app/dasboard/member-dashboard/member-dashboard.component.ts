@@ -16,14 +16,12 @@ export class MemberDashboardComponent {
   constructor(
     private authService: FireAuthService,
     private taskService: TasksService,
-    private router: Router
+    private router: Router,
   ) {}
 
   get memberSpecificTasks() {
     const userId = this.authService.getUserId();
-    return this.taskService
-      .getTasks()
-      .filter((task) => task.assignedTo === userId);
+    return this.taskService.getTasks().filter((task) => task.assignedTo === userId);
   }
 
   get isLoading() {

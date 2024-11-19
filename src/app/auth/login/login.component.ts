@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FireAuthService } from '../../core/services/fireauth.service';
 import { RootLayoutComponent } from '../../shared/layout/root-layout/root-layout.component';
@@ -28,7 +23,10 @@ export class LoginComponent {
     }),
   });
 
-  constructor(private authService: FireAuthService, private router: Router) {}
+  constructor(
+    private authService: FireAuthService,
+    private router: Router,
+  ) {}
 
   get isEmailInvalid() {
     return (
@@ -64,7 +62,7 @@ export class LoginComponent {
         },
         (err) => {
           alert(err.message);
-        }
+        },
       )
       .finally(() => (this.loading = false));
   }
@@ -88,7 +86,7 @@ export class LoginComponent {
         },
         (err) => {
           alert(err.message);
-        }
+        },
       )
       .finally(() => (this.loading = false));
   }

@@ -21,7 +21,7 @@ export class ViewTaskComponent {
     private taskService: TasksService,
     private authService: FireAuthService,
     private userService: UsersService,
-    private router: Router
+    private router: Router,
   ) {}
   isDeleting = false;
   isEditing = false;

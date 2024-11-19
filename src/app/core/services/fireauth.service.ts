@@ -14,7 +14,10 @@ import { FireStoreService } from './firestore.service';
 export class FireAuthService {
   private user: User | null = null;
 
-  constructor(private auth: Auth, private firestoreService: FireStoreService) {
+  constructor(
+    private auth: Auth,
+    private firestoreService: FireStoreService,
+  ) {
     const user = this.getUserFromSession();
     if (user) {
       this.user = user;
@@ -45,9 +48,7 @@ export class FireAuthService {
   async signInWithEmailAndPassword(email: string, password: string) {
     try {
       const cred = await signInWithEmailAndPassword(this.auth, email, password);
-      const userData = await this.firestoreService.getDocument(
-        `users/${cred.user.uid}`
-      );
+      const userData = await this.firestoreService.getDocument(`users/${cred.user.uid}`);
       if (userData) {
         this.user = {
           id: userData['id'],
@@ -68,7 +69,7 @@ export class FireAuthService {
       const cred = await createUserWithEmailAndPassword(
         this.auth,
         'bob.user@example.com',
-        password
+        password,
       );
 
       const userData: User = {
@@ -79,10 +80,7 @@ export class FireAuthService {
       };
 
       this.user = userData;
-      await this.firestoreService.createDocument(
-        `users/${userData.id}`,
-        userData
-      );
+      await this.firestoreService.createDocument(`users/${userData.id}`, userData);
     } catch (error) {
       console.error('Error signing up:', error);
       throw this.handleError(error);

@@ -20,7 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private usersService: UsersService,
-    private taskService: TasksService
+    private taskService: TasksService,
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class AdminDashboardComponent implements OnInit {
       },
       (error) => {
         console.log('Error:', error);
-      }
+      },
     );
 
     this.taskService
@@ -42,7 +42,7 @@ export class AdminDashboardComponent implements OnInit {
         },
         (error) => {
           console.log('Error:', error);
-        }
+        },
       )
       .finally(() => {
         this.loading = false;

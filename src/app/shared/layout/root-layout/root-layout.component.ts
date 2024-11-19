@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './root-layout.component.html',
-  styleUrl: './root-layout.component.css'
+  styleUrl: './root-layout.component.css',
 })
-export class RootLayoutComponent {
-
-}
+export class RootLayoutComponent {}

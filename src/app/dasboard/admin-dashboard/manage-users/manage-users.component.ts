@@ -15,7 +15,7 @@ export class ManageUsersComponent {
   loading = false;
   constructor(
     private userService: UsersService,
-    private authService: FireAuthService
+    private authService: FireAuthService,
   ) {}
 
   get currentUserId() {
@@ -23,9 +23,7 @@ export class ManageUsersComponent {
   }
 
   get admins() {
-    return this.userService
-      .getAllUsers()
-      .filter((user) => user.role === 'admin');
+    return this.userService.getAllUsers().filter((user) => user.role === 'admin');
   }
 
   get members() {
@@ -42,7 +40,7 @@ export class ManageUsersComponent {
         },
         (error) => {
           console.log('Error:', error);
-        }
+        },
       )
       .finally(() => {
         this.loading = false;
@@ -59,8 +57,7 @@ export class ManageUsersComponent {
         },
         (error) => {
           console.log('Error:', error);
-          
-        }
+        },
       )
       .finally(() => {
         this.loading = false;

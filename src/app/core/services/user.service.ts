@@ -18,7 +18,7 @@ export class UsersService {
         },
         (error) => {
           console.log('Error:', error);
-        }
+        },
       )
       .finally(() => {
         this.loading = false;

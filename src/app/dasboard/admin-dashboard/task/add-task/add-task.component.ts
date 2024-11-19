@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { RootLayoutComponent } from '../../../../shared/layout/root-layout/root-layout.component';
 import { NavbarComponent } from '../../../../shared/components/navbar/navbar.component';
@@ -38,7 +33,7 @@ export class AddTaskComponent {
   constructor(
     private userService: UsersService,
     private taskService: TasksService,
-    private router: Router
+    private router: Router,
   ) {}
 
   get isTaskNameValid() {
@@ -87,7 +82,7 @@ export class AddTaskComponent {
         },
         (error) => {
           console.error('Error adding task:', error);
-        }
+        },
       )
       .finally(() => {
         this.isLoading = false;

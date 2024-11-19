@@ -17,7 +17,7 @@ export const routes: Routes = [
     path: 'admin',
     loadComponent: () =>
       import('./dasboard/admin-dashboard/admin-dashboard.component').then(
-        (m) => m.AdminDashboardComponent
+        (m) => m.AdminDashboardComponent,
       ),
     canActivate: [authGuard],
     data: {
@@ -27,9 +27,9 @@ export const routes: Routes = [
   {
     path: 'admin/add',
     loadComponent: () =>
-      import(
-        './dasboard/admin-dashboard/task/add-task/add-task.component'
-      ).then((m) => m.AddTaskComponent),
+      import('./dasboard/admin-dashboard/task/add-task/add-task.component').then(
+        (m) => m.AddTaskComponent,
+      ),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -38,9 +38,9 @@ export const routes: Routes = [
   {
     path: 'admin/task/:id',
     loadComponent: () =>
-      import(
-        './dasboard/admin-dashboard/task/view-task/view-task.component'
-      ).then((m) => m.ViewTaskComponent),
+      import('./dasboard/admin-dashboard/task/view-task/view-task.component').then(
+        (m) => m.ViewTaskComponent,
+      ),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -49,9 +49,9 @@ export const routes: Routes = [
   {
     path: 'admin/edit/:id',
     loadComponent: () =>
-      import(
-        './dasboard/admin-dashboard/task/edit-task/edit-task.component'
-      ).then((m) => m.EditTaskComponent),
+      import('./dasboard/admin-dashboard/task/edit-task/edit-task.component').then(
+        (m) => m.EditTaskComponent,
+      ),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -60,9 +60,9 @@ export const routes: Routes = [
   {
     path: 'admin/manage-users',
     loadComponent: () =>
-      import(
-        './dasboard/admin-dashboard/manage-users/manage-users.component'
-      ).then((m) => m.ManageUsersComponent),
+      import('./dasboard/admin-dashboard/manage-users/manage-users.component').then(
+        (m) => m.ManageUsersComponent,
+      ),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -72,7 +72,7 @@ export const routes: Routes = [
     path: 'member',
     loadComponent: () =>
       import('./dasboard/member-dashboard/member-dashboard.component').then(
-        (m) => m.MemberDashboardComponent
+        (m) => m.MemberDashboardComponent,
       ),
     canActivate: [authGuard],
   },

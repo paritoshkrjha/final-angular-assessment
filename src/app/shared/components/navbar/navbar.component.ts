@@ -15,7 +15,10 @@ export class NavbarComponent {
   })
   title!: string;
 
-  constructor(private authService: FireAuthService, private router : Router) {}
+  constructor(
+    private authService: FireAuthService,
+    private router: Router,
+  ) {}
 
   handleLogOut() {
     this.authService.signOut().then(
@@ -24,7 +27,7 @@ export class NavbarComponent {
       },
       () => {
         alert('Error signing out');
-      }
+      },
     );
   }
 }

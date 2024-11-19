@@ -5,12 +5,7 @@ import { UsersService } from '../../../core/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavbarComponent } from '../../../shared/components/navbar/navbar.component';
 import { RootLayoutComponent } from '../../../shared/layout/root-layout/root-layout.component';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-details',
@@ -30,7 +25,7 @@ export class TaskDetailsComponent {
     private authService: FireAuthService,
     private userService: UsersService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.id = this.activatedRoute.snapshot.params['id'];
     this.taskStatusForm = new FormGroup({
@@ -81,8 +76,9 @@ export class TaskDetailsComponent {
         },
         (error) => {
           console.log('Error updating task status', error);
-        }
-      ).finally(() => {
+        },
+      )
+      .finally(() => {
         this.isUpdating = false;
       });
   }

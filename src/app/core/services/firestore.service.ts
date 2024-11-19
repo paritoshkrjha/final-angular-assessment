@@ -18,10 +18,7 @@ export class FireStoreService {
   constructor(private firestore: Firestore) {}
 
   async getCollection(collectionPath: string): Promise<any[]> {
-    const usersCollection: CollectionReference = collection(
-      this.firestore,
-      collectionPath
-    );
+    const usersCollection: CollectionReference = collection(this.firestore, collectionPath);
     const usersSnapshot = await getDocs(usersCollection);
     const usersList = usersSnapshot.docs.map((doc) => ({
       id: doc.id,

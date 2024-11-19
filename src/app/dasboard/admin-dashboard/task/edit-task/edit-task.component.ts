@@ -4,25 +4,14 @@ import { NavbarComponent } from '../../../../shared/components/navbar/navbar.com
 import { TasksService } from '../../../../core/services/tasks.service';
 import { UsersService } from '../../../../core/services/user.service';
 
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-task',
   standalone: true,
-  imports: [
-    RootLayoutComponent,
-    NavbarComponent,
-    ReactiveFormsModule,
-    NgIf,
-    NgForOf,
-  ],
+  imports: [RootLayoutComponent, NavbarComponent, ReactiveFormsModule, NgIf, NgForOf],
   templateUrl: './edit-task.component.html',
   styleUrl: './edit-task.component.css',
 })
@@ -36,7 +25,7 @@ export class EditTaskComponent {
     private userService: UsersService,
     private taskService: TasksService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.id = this.activeRoute.snapshot.paramMap.get('id')!;
     this.editTaskForm = new FormGroup({
@@ -104,7 +93,7 @@ export class EditTaskComponent {
         },
         (error: any) => {
           console.log('Error:', error);
-        }
+        },
       )
       .finally(() => {
         this.isLoading = false;
