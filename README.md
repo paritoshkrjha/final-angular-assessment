@@ -1,3 +1,21 @@
+PROJECT - [DEPLOYED URL](https://final-angular-assessment.vercel.app/login)
+
+- **Admin:**
+
+  - Name: Alice Admin
+  - Email: admin@example.com
+  - Role: Admin
+
+- **Team Members:**
+
+  - Name: Bob User
+  - Email: bob.user@example.com
+  - Role: Team Member
+
+  - Name: Charlie Member
+  - Email: charlie.member@example.com
+  - Role: Team Member
+
 # **Task 1: Project/Task Management Portal**
 
 Add this to your readme file.
