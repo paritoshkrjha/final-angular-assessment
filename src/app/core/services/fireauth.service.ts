@@ -38,6 +38,10 @@ export class FireAuthService {
     return this.user?.role;
   }
 
+  getUserId() {
+    return this.user?.id;
+  }
+
   async signInWithEmailAndPassword(email: string, password: string) {
     try {
       const cred = await signInWithEmailAndPassword(this.auth, email, password);
@@ -87,6 +91,7 @@ export class FireAuthService {
 
   signOut() {
     this.user = null;
+    sessionStorage.removeItem('user');
     return this.auth.signOut();
   }
 

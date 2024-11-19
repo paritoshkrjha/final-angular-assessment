@@ -7,6 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   const role = authService.getRole();
+  console.log('Role:', role);
 
   if (role) {
     const requiredRole = route.data['role'];

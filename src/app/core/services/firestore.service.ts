@@ -17,10 +17,10 @@ import {
 export class FireStoreService {
   constructor(private firestore: Firestore) {}
 
-  async fetchUsers(): Promise<any[]> {
+  async getCollection(collectionPath: string): Promise<any[]> {
     const usersCollection: CollectionReference = collection(
       this.firestore,
-      'users'
+      collectionPath
     );
     const usersSnapshot = await getDocs(usersCollection);
     const usersList = usersSnapshot.docs.map((doc) => ({
