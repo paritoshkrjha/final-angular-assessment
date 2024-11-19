@@ -23,6 +23,7 @@ export class TaskDetailsComponent {
   showEditTaskDialog = false;
   taskStatusForm!: FormGroup;
   id!: string;
+  isUpdating = false;
 
   constructor(
     private taskService: TasksService,
@@ -67,6 +68,7 @@ export class TaskDetailsComponent {
   }
 
   onUpdateStatus() {
+    this.isUpdating = true;
     this.taskService
       .updateTask({
         ...this.taskDetails!,
@@ -80,6 +82,8 @@ export class TaskDetailsComponent {
         (error) => {
           console.log('Error updating task status', error);
         }
-      );
+      ).finally(() => {
+        this.isUpdating = false;
+      });
   }
 }
