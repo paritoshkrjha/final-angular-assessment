@@ -1,12 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { authGuard } from './auth/auth.guard';
-import { AdminDashboardComponent } from './dasboard/admin-dashboard/admin-dashboard.component';
-import { MemberDashboardComponent } from './dasboard/member-dashboard/member-dashboard.component';
-import { AddTaskComponent } from './dasboard/admin-dashboard/task/add-task/add-task.component';
-import { ManageUsersComponent } from './dasboard/admin-dashboard/manage-users/manage-users.component';
-import { EditTaskComponent } from './dasboard/admin-dashboard/task/edit-task/edit-task.component';
-import { ViewTaskComponent } from './dasboard/admin-dashboard/task/view-task/view-task.component';
 import { TaskDetailsComponent } from './dasboard/member-dashboard/task-details/task-details.component';
 
 export const routes: Routes = [
@@ -21,7 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminDashboardComponent,
+    loadComponent: () =>
+      import('./dasboard/admin-dashboard/admin-dashboard.component').then(
+        (m) => m.AdminDashboardComponent
+      ),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -29,7 +26,10 @@ export const routes: Routes = [
   },
   {
     path: 'admin/add',
-    component: AddTaskComponent,
+    loadComponent: () =>
+      import(
+        './dasboard/admin-dashboard/task/add-task/add-task.component'
+      ).then((m) => m.AddTaskComponent),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -37,7 +37,10 @@ export const routes: Routes = [
   },
   {
     path: 'admin/task/:id',
-    component: ViewTaskComponent,
+    loadComponent: () =>
+      import(
+        './dasboard/admin-dashboard/task/view-task/view-task.component'
+      ).then((m) => m.ViewTaskComponent),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -45,7 +48,10 @@ export const routes: Routes = [
   },
   {
     path: 'admin/edit/:id',
-    component: EditTaskComponent,
+    loadComponent: () =>
+      import(
+        './dasboard/admin-dashboard/task/edit-task/edit-task.component'
+      ).then((m) => m.EditTaskComponent),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -53,7 +59,10 @@ export const routes: Routes = [
   },
   {
     path: 'admin/manage-users',
-    component: ManageUsersComponent,
+    loadComponent: () =>
+      import(
+        './dasboard/admin-dashboard/manage-users/manage-users.component'
+      ).then((m) => m.ManageUsersComponent),
     canActivate: [authGuard],
     data: {
       role: 'admin',
@@ -61,7 +70,10 @@ export const routes: Routes = [
   },
   {
     path: 'member',
-    component: MemberDashboardComponent,
+    loadComponent: () =>
+      import('./dasboard/member-dashboard/member-dashboard.component').then(
+        (m) => m.MemberDashboardComponent
+      ),
     canActivate: [authGuard],
   },
   {
