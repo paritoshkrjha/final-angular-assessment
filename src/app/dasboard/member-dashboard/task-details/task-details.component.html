@@ -43,10 +43,10 @@
               </select>
               <button
                 type="submit"
-                [class.disabled]="!taskStatusForm.dirty"
+                [class.disabled]="!taskStatusForm.dirty || isUpdating"
                 class="ml-4 bg-blue-500 text-white p-2 rounded-md"
               >
-                Update
+                @if(isUpdating){ Updating... } @else {Update}
               </button>
             </form>
           </div>

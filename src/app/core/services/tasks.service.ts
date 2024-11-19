@@ -13,7 +13,7 @@ export class TasksService {
     this.fetchTasks()
       .then(
         (tasks) => {
-          this.setTasks(tasks);
+          this.tasks = tasks;
         },
         (error) => {
           console.log('Error:', error);
@@ -49,6 +49,14 @@ export class TasksService {
   }
 
   updateTask(task: Task) {
-    return this.firestoreService.updateDocument(`tasks/${task.id}`, task);
+    return this.firestoreService.updateDocument(`tasks/${task.id}`, task).then(
+      () => {
+        const index = this.tasks.findIndex((t) => t.id === task.id);
+        this.tasks[index] = task;
+      },
+      (error) => {
+        console.log('Error:', error);
+      }
+    );
   }
 }
