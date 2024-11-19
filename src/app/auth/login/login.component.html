@@ -1,65 +1,67 @@
-<div class="w-full h-full flex flex-col justify-center">
-  <div
-    class="w-72 mx-auto p-5 border border-gray-300 rounded-md shadow-md bg-gray-100"
-  >
-    <form [formGroup]="loginFormgroup" (ngSubmit)="onSubmit()">
-      <h2 class="text-3xl text-center mb-5">Login</h2>
+<app-root-layout>
+  <div class="w-full h-full flex flex-col justify-center">
+    <div
+      class="w-72 mx-auto p-5 border border-gray-300 rounded-md shadow-md bg-gray-100"
+    >
+      <form [formGroup]="loginFormgroup" (ngSubmit)="onSubmit()">
+        <h2 class="text-3xl text-center mb-5">Login</h2>
 
-      <div class="form-group">
-        <label class="form-group--label" for="email">Email</label>
-        <input
-          class="form-group--input"
-          type="email"
-          id="email"
-          formControlName="email"
-        />
-        @if(isEmailInvalid){
-        <div class="error">
-          @if(this.loginFormgroup.controls.email.errors?.['required']){
-          <span>Email is required.</span>
-          } @else {
-          <span>Invalid email format.</span>
+        <div class="form-group">
+          <label class="form-group--label" for="email">Email</label>
+          <input
+            class="form-group--input"
+            type="email"
+            id="email"
+            formControlName="email"
+          />
+          @if(isEmailInvalid){
+          <div class="error">
+            @if(this.loginFormgroup.controls.email.errors?.['required']){
+            <span>Email is required.</span>
+            } @else {
+            <span>Invalid email format.</span>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <div class="form-group">
-        <label class="form-group--label" for="password">Password</label>
-        <input
-          class="form-group--input"
-          type="password"
-          id="password"
-          formControlName="password"
-        />
-        @if(isPasswordInvalid){
-        <div class="error">
-          @if(this.loginFormgroup.controls.password.errors?.['required']){
-          <span>Password is required.</span>
-          } @else {
-          <span>Password must be at least 6 characters long.</span>
+        <div class="form-group">
+          <label class="form-group--label" for="password">Password</label>
+          <input
+            class="form-group--input"
+            type="password"
+            id="password"
+            formControlName="password"
+          />
+          @if(isPasswordInvalid){
+          <div class="error">
+            @if(this.loginFormgroup.controls.password.errors?.['required']){
+            <span>Password is required.</span>
+            } @else {
+            <span>Password must be at least 6 characters long.</span>
+            }
+          </div>
           }
         </div>
-        }
-      </div>
 
-      <button
-        type="submit"
-        class="btn"
-        [class.disabled]="loading"
-        [disabled]="loading"
-      >
-        @if(loading){loading...} @else { Login }
-      </button>
-      <!-- <button
-          type="button"
+        <button
+          type="submit"
           class="btn"
-          (click)="onRegister()"
           [class.disabled]="loading"
           [disabled]="loading"
         >
-        @if(loading){loading...} @else { Register }
-        </button> -->
-    </form>
+          @if(loading){loading...} @else { Login }
+        </button>
+        <!-- <button
+      type="button"
+      class="btn"
+      (click)="onRegister()"
+      [class.disabled]="loading"
+      [disabled]="loading"
+      >
+      @if(loading){loading...} @else { Register }
+    </button> -->
+      </form>
+    </div>
   </div>
-</div>
+</app-root-layout>

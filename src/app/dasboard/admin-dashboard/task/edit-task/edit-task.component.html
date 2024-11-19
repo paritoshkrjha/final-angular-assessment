@@ -1,0 +1,63 @@
+<app-navbar title="Admin Dashboard" />
+<app-root-layout>
+  <div class="mt-10">
+    <p class="text-3xl">Edit Task Details</p>
+  </div>
+  <form class="p-10" [formGroup]="editTaskForm" (ngSubmit)="onEditTask()">
+    <div class="form-group">
+      <label class="form-group--label" for="taskName">
+        Task Name
+        <span class="text-red-500">*</span>
+      </label>
+      <input
+        class="form-group--input"
+        id="taskName"
+        formControlName="taskName"
+      />
+      <div *ngIf="isTaskNameValid" class="error">Task Name is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-group--label" for="projectName">
+        Project Name
+        <span class="text-red-500">*</span>
+      </label>
+      <input
+        class="form-group--input"
+        id="projectName"
+        formControlName="projectName"
+      />
+      <div *ngIf="isProjectNameValid" class="error">
+        Project Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-group--label" for="assignTo">
+        Assign To
+        <span class="text-red-500">*</span>
+      </label>
+      <select
+        class="form-group--input"
+        id="assignTo"
+        formControlName="assignTo"
+      >
+        <option *ngFor="let member of members" [value]="member.id">
+          {{ member.name }}
+        </option>
+      </select>
+      <div *ngIf="isAssignToValid" class="error">Assign To is required.</div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn"
+      [class.disabled]="!isFormDirty"
+      [disabled]="isLoading"
+      (click)="onEditTask()"
+    >
+      <span *ngIf="isLoading">Saving...</span>
+      <span *ngIf="!isLoading">Save Changes</span>
+    </button>
+  </form>
+</app-root-layout>
