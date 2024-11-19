@@ -36,8 +36,8 @@ export class MemberDashboardComponent {
         return 'To Do';
       case 'in-progress':
         return 'In Progress';
-      case 'done':
-        return 'Done';
+      case 'completed':
+        return 'Completed';
       default:
         return 'To Do';
     }
